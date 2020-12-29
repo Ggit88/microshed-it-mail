@@ -1,0 +1,23 @@
+<server description="Retrieve OTP Server">
+
+  <!-- Enable features -->
+  <featureManager>
+    <feature>microProfile-3.0</feature>
+    <feature>javaMail-1.6</feature>
+  </featureManager>
+    
+  <variable name="UserAPIClient/mp-rest/url" defaultValue="http://defaultHost/api" />
+  <variable name="retrieveOTP.mail.account" defaultValue="default@default.it" />
+  <variable name="retrieveOTP.mail.password" defaultValue="default" />
+  <variable name="retrieveOTP.mail.host" defaultValue="deafultHost" />	
+  <variable name="retrieveOTP.mail.port" defaultValue="993" />
+  
+  <mailSession id="retrieveOTPMailSession" mailSessionID="retrieveOTP" jndiName="mail/retrieveOTP"
+    user="${retrieveOTP.mail.account}" password="${retrieveOTP.mail.password}" host="${retrieveOTP.mail.host}" storeProtocol="imap" from="no-reply@retrieveOTP.it"
+    description="Imap Gmail client for Retrieve OTP Server">
+    <property name="mail.imap.port" value="${retrieveOTP.mail.port}" />
+    <property name="mail.imap.ssl.enable" value="true" />
+    <property name="mail.imap.ssl.trust" value="*" />
+  </mailSession>	
+    
+</server>
