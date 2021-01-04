@@ -46,10 +46,10 @@ public class AppDeploymentConfig implements SharedContainerConfiguration {
 	
 	@Container
 	public static ApplicationContainer app = new ApplicationContainer().withAppContextRoot("/it-ol-api-mail")
-			.withEnv("retrieveOTP.mail.account", MAIL_USER)
-			.withEnv("retrieveOTP.mail.password", MAIL_PWD)
-			.withEnv("retrieveOTP.mail.host", MAILSERVER_NETWORK_ALIAS)
-			.withEnv("retrieveOTP.mail.port", String.valueOf(IMAPS_MAILSERVER_PORT))
+			.withEnv("retrieveOTP_mail_account", MAIL_USER)
+			.withEnv("retrieveOTP_mail_password", MAIL_PWD)
+			.withEnv("retrieveOTP_mail_host", MAILSERVER_NETWORK_ALIAS)
+			.withEnv("retrieveOTP_mail_port", String.valueOf(IMAPS_MAILSERVER_PORT))
 			.withNetwork(network)
 			.withMpRestClient(UserAPI.class, "http://" + USERAPISERVER_NETWORK_ALIAS + ":" + MockServerContainer.PORT)
 			.dependsOn(mailServer,mockServer);
